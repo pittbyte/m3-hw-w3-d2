@@ -1,0 +1,72 @@
+// @colors.scss';
+
+// Variables
+$primary-color: #dcf829;
+$background-left: #6e7a5b;
+$background-right: #a6ad80;
+$text-color: black;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Global styles
+* {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.container {
+  background-color: #f7eb80;
+  border: 1px solid #000;
+  display: flex;
+  height: 500px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1em;
+  width: 50%;
+
+  .left, .right {
+    @include flex-center;
+    height: 100%;
+
+    p {
+      text-align: center; // Center text inside the paragraph
+      &:after {
+        content: '\A';
+        white-space: pre;
+      }
+    }
+  }
+
+  .left {
+    background-color: $background-left;
+    width: 69%;
+  }
+
+  .right {
+    background-color: $background-right;
+    width: 29%;
+    position: relative; // Maintain position context for the button
+
+    .button {
+      background-color: $primary-color;
+      color: $text-color;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 7em;
+      height: 2.5em;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.5em 2em;
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
